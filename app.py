@@ -13,7 +13,6 @@ env = Environment(loader=FileSystemLoader('html'))
 class HelloWorld(object):
 
     def get_csv(self):
-        '''
         url = "https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx"
 
         content = urllib.request.urlopen(url).read()
@@ -29,9 +28,9 @@ class HelloWorld(object):
         df = pd.read_csv((zipfile.open(zipfile.namelist()[0])))
         new = df.filter(['SC_CODE', 'SC_NAME', 'OPEN', 'HIGH', 'LOW', 'CLOSE'], axis=1)
         key = 0
-        #for i in json.loads(new.to_json(orient='records')):
-        #    red.hmset(key, i)
-        '''
+        for i in json.loads(new.to_json(orient='records')):
+            red.hmset(key, i)
+
         red = redis.StrictRedis(charset="utf-8", decode_responses=True)
         cursor, possible_keys = red.scan(count=10)
 
