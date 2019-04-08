@@ -1,8 +1,48 @@
 {% extends "layout.html" %}
 {% block body %}
-    <ul>
-    {% for item in data %}
-        <li>{{ item }}</li>
-    {% endfor %}
-    </ul>
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Code</th>
+									<th class="cell100 column2">Name</th>
+									<th class="cell100 column3">Open</th>
+									<th class="cell100 column4">High</th>
+									<th class="cell100 column5">Low</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+                            	{% for item in data %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{item.SC_CODE}}</td>
+									<td class="cell100 column2">{{item.SC_NAME}}</td>
+									<td class="cell100 column3">{{item.OPEN}}</td>
+									<td class="cell100 column4">{{item.HIGH}}</td>
+									<td class="cell100 column5">{{item.LOW}}</td>
+                                    <td class="cell100 column5">{{item.CLOSE}}</td>
+								</tr>
+                             {% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<section class="fibonacci-ui">
+					<form action="/search">
+						<input type="text" name="search"/>
+						<button type="submit">Search</button>
+
+					</form>
+						</section>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
