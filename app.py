@@ -24,7 +24,7 @@ class DataDisplay(object):
             links.append(link.get('href'))
         resp = urllib.request.urlopen(links[1])
         zipfile = ZipFile(BytesIO(resp.read()))
-        red = redis.StrictRedis(host= 0.tcp.ngrok.io, port=15673,charset="utf-8", decode_responses=True)
+        red = redis.StrictRedis(host= '0.tcp.ngrok.io', port=15673,charset="utf-8", decode_responses=True)
         df = pd.read_csv((zipfile.open(zipfile.namelist()[0])))
         new = df.filter(['SC_CODE', 'SC_NAME', 'OPEN', 'HIGH', 'LOW', 'CLOSE'], axis=1)
         key=0
