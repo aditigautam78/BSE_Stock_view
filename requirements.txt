@@ -1,5 +1,5 @@
 cherrypy==3.8.0
-Jinja2==2.7.3
+Jinja2==2.11.3
 beautifulsoup4==4.6.0
 redis==3.2.1
 urllib3==1.26.5
